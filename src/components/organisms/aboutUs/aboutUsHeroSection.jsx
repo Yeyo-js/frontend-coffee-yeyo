@@ -4,10 +4,8 @@ import { AboutUsInfoCard } from "../../molecules/aboutUs/aboutUsInfoCard"
 
 function AboutUsHeroSection() {
   return (
-    <section className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-4">
+    <section className="relative w-full min-h-screen bg-transparent overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-4">
       
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-black to-[#1a1005] z-0"></div>
-
       <div className="relative z-10 w-full max-w-7xl flex flex-col items-center">
         
         <AboutUsMainTitle text="Nuestra Pasión: El Café Perfecto" />
