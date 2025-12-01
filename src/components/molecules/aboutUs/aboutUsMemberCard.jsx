@@ -1,4 +1,4 @@
-import { AboutUsMemberPhoto } from "../../atoms/aboutUs/aboutUsMemberPhoto"
+import { AboutUsMemberPhoto } from "../../atoms/aboutUs/AboutUsMemberPhoto"
 import { Title } from "../../atoms/titles"
 import { Paragraph } from "../../atoms/paragraph"
 
@@ -11,18 +11,21 @@ function AboutUsMemberCard({ member, position, isCenter }) {
     `}>
       <AboutUsMemberPhoto src={member.image} alt={member.name} isActive={isCenter} />
 
-      <div className={`mt-6 text-center transition-all duration-500 ${isCenter ? 'opacity-100' : 'md:opacity-60'}`}>
+      <div className={`mt-6 w-full text-center transition-all duration-500 ${isCenter ? 'opacity-100' : 'md:opacity-60'}`}>
         
         <Title 
           level="h3" 
           text={member.name} 
-          variant="secondary"
-          className="font-joti mb-1 drop-shadow-md !text-2xl"
+          variant="secondary" 
+          align="center" 
+          className="font-joti mb-1 drop-shadow-md !text-2xl" 
         />
         
         <Paragraph 
           text={member.role}
-          className="text-[#d1a656] uppercase tracking-widest font-bold text-sm"
+          align="center" 
+          variant="primary" 
+          className="uppercase tracking-widest font-bold text-sm"
         />
         
       </div>
