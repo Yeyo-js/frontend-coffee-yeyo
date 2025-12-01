@@ -1,12 +1,21 @@
 import { useState } from "react"
+import { Button } from "../atoms/buttons"
+import { Title } from "../atoms/titles"
+import { Link } from "../atoms/links"
+import { FormItem } from "../molecules/formItem"
+
 
 function ModalLogin({ setModalIsOpen }) {
   const [isClosing, setIsClosing] = useState(false)
+  const [formData, setFormData] = useState({
+    user : '',
+    password : ''
+  })
 
   const handleClose = () => {
     setIsClosing(true)
     setTimeout(() => {
-      setModalIsOpen(false) // ✅ CORREGIDO
+      setModalIsOpen(false) 
     }, 400)
   }
 
@@ -22,6 +31,26 @@ function ModalLogin({ setModalIsOpen }) {
     e.stopPropagation()
   }
 
+  const formFields = [
+    {
+      text : 'Usuario',
+      htmlFor :'user',
+      type :'text',
+      name : 'user',
+      value : formData.user,
+      placeholder:'Tu Usuario',
+      onChange: (e) => setFormData({...formData, user: e.target.value})
+    },
+    {
+      text : 'Contraseña',
+      htmlFor :'passwd',
+      type :'password',
+      name : 'passwd',
+      value : formData.password,
+      placeholder:'Tu contraseña',
+      onChange: (e) => setFormData({...formData, password: e.target.value})
+    },
+  ]
   return (
     <>
       <div 
@@ -40,72 +69,36 @@ function ModalLogin({ setModalIsOpen }) {
             ${isClosing ? 'opacity-0 translate-y-20px' : 'opacity-100 translate-y-0'}
           `}
         >
-          <h2 className="text-center font-bold text-3xl text-gray-800">
-            Login
-          </h2>
-
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">
-              Usuario
-            </label>
-            <input 
-              className="
-                bg-gray-200 rounded-lg h-10 px-3
-                border border-transparent
-                focus:border-blue-500 focus:ring-2 focus:ring-blue-200
-                outline-none transition-all duration-200
-              "
-              type="text"
-              placeholder="user"
+          <Title
+            text='Inicia Sesión'
+            level="h2"
+            align="center"
+            variant=""
+            weight="bold"
+            className="text-center font-bold text-3xl text-gray-800"/>
+          <FormItem
+            formFields={formFields}
             />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">
-              Contraseña
-            </label>
-            <input 
-              className="
-                bg-gray-200 rounded-lg h-10 px-3
-                border border-transparent
-                focus:border-blue-500 focus:ring-2 focus:ring-blue-200
-                outline-none transition-all duration-200
-              "
-              type="password"
-              placeholder="Password"
-            />
-          </div>
-          <button 
-            type="button"
-            className="
-              mt-3 py-2.5 rounded-lg font-semibold
-              bg-gradient-to-r from-amber-400 to-amber-500
-              hover:from-amber-500 hover:to-amber-600
-              active:scale-95
-              transition-all duration-300
-              shadow-md hover:shadow-lg
-            "
-            onClick={handleClose}
-          >
-            Enviar
-          </button>
-
+          <Button 
+            type='submit'
+            variant="default"
+            text={'Enviar'}
+          />
           <div className="
             mt-4 pt-4 border-t border-gray-200
             flex items-center justify-between 
             text-xs text-blue-600
           ">
-            <a 
-              href="#" 
-              className="hover:text-blue-800 hover:underline transition-colors"
-            >
-              Olvidé mi Contraseña
-            </a>
-            <a 
-              href="#" 
-              className="hover:text-blue-800 hover:underline transition-colors"
-            >
-              No tengo cuenta 
-            </a>
+            <Link
+              text={'Olvidé mi Contraseña'}
+              variant="default"
+              href='#'
+            />
+            <Link
+              text={'No tengo cuenta '}
+              variant="default"
+              href='#'
+            />
           </div>
         </form>
       </div>

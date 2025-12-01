@@ -1,5 +1,5 @@
 
-import { BannerBgCurba } from "../molecules/bannerbgCurba"
+import { BannerBgCurve } from "../molecules/bannerBgCurve"
 import { BannerButtons } from "../molecules/bannerButtons"
 import { BannerCoffee } from "../molecules/bannerCupCoffe"
 
@@ -24,7 +24,7 @@ function HomeBanner() {
           para desconectarte y disfrutar del momento. Déjate envolver por el aroma,
           los sabores y la calidez de nuestro espacio."
         </p>
-        <BannerBgCurba/>
+        <BannerBgCurve/>
         <BannerButtons/>
       </article>
       

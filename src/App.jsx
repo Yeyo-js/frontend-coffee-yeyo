@@ -8,52 +8,73 @@ import { ContactPage } from "./components/pages/contactPage"
 import { Navbar } from "./components/organisms/navbar"
 import { useState } from "react"
 import { ModalLogin } from "./components/organisms/modalLogin"
+import { CartShop } from "./components/organisms/modalCartShop"
+
+// Tendencies sections
+import { TendenciesCoffee } from "./components/organisms/tendenciesCoffee"
+import { TendenciesCokies } from "./components/organisms/tendenciesCokies"
+import { TendenciesCakes } from "./components/organisms/tendenciesCakes"
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [cartShopOpen, setCartShopOpen] = useState(false)
 
   const pages = [
     {
       path: '/',
-      component: HomePage
+      element: <HomePage/>,
+      children: [
+        { index: true, element: <TendenciesCoffee /> }, 
+        { path: 'coffee', element: <TendenciesCoffee /> },
+        { path: 'cookies', element: <TendenciesCokies /> },
+        { path: 'cakes', element: <TendenciesCakes /> },
+      ]
     },
     {
       path: '/letter',
-      component: LetterPage
+      element: <LetterPage/>
     },
     {
       path: '/aboutus',
-      component: AbouUsPage
+      element: <AbouUsPage/>
     },
     {
       path: '/bookings',
-      component: BookingPage
+      element: <BookingPage/>
     },
     {
       path: '/contact',
-      component: ContactPage
+      element: <ContactPage/>
     },
   ]
 
   return (
     <>
-      <Navbar setModalIsOpen={setModalIsOpen}/>
+      <Navbar setModalIsOpen={setModalIsOpen} setCartShopOpen={setCartShopOpen} />
+
       <MyTemplate>
-      {modalIsOpen ? <ModalLogin setModalIsOpen={setModalIsOpen} /> : ''}
+        {modalIsOpen ? <ModalLogin setModalIsOpen={setModalIsOpen} /> : ''}
+        {cartShopOpen ? <CartShop setCartShopOpen={setCartShopOpen} /> : ''}
+
         <Routes>
-          {
-            pages.map((page) => {
-              return (
+          {pages.map((page, i) => (
+            <Route
+              key={i}
+              path={page.path}
+              element={page.element}
+            >
+              {page.children?.map((child, j) => (
                 <Route
-                  path={page.path}
-                  Component={page.component}
+                  key={j}
+                  path={child.path}
+                  index={child.index} // Importante: pasar el index
+                  element={child.element}
                 />
-              )
-            })
-          }
+              ))}
+            </Route>
+          ))}
         </Routes>
       </MyTemplate>
-      
     </>
   )
 }

@@ -1,4 +1,4 @@
-function BannerBgCurba() {
+function BannerBgCurve() {
   return (
     <div className="absolute bottom-0 left-0 w-full leading-none overflow-hidden">
       <svg
@@ -16,4 +16,4 @@ function BannerBgCurba() {
   )
 }
 
-export { BannerBgCurba }
+export { BannerBgCurve }
