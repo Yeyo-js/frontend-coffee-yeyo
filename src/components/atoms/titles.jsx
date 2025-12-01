@@ -5,8 +5,7 @@ function Title({
   className = '',
   variant = 'default',
   align = 'left',
-  size = 'medium',     
-  weight = 'normal',   
+  weight = 'normal',
   ...props
 }) {
   const Tag = level;
@@ -14,7 +13,7 @@ function Title({
   const variants = {
     default: 'text-black',
     primary: 'text-white',
-    secondary: 'text-gray-400',
+    secondary: 'text-[#FFBB00]',
     danger: 'text-red-500',
   };
 
@@ -24,10 +23,13 @@ function Title({
     right: 'text-right',
   };
 
-  const sizes = {
-    small: 'text-base sm:text-lg md:text-xl',
-    medium: 'text-lg sm:text-xl md:text-2xl',
-    large: 'text-xl sm:text-2xl md:text-3xl lg:text-4xl',
+  const defaultByLevel = {
+    h1: 'text-4xl sm:text-5xl md:text-6xl',
+    h2: 'text-3xl sm:text-4xl md:text-5xl',
+    h3: 'text-2xl sm:text-3xl md:text-4xl',
+    h4: 'text-xl sm:text-2xl md:text-3xl',
+    h5: 'text-lg sm:text-xl',
+    h6: 'text-base sm:text-lg',
   };
 
   const weights = {
@@ -39,7 +41,7 @@ function Title({
   return (
     <Tag
       className={`
-        ${sizes[size] || sizes.medium}
+        ${defaultByLevel[level] || defaultByLevel.h1}
         ${weights[weight] || weights.normal}
         ${variants[variant] || variants.default}
         ${alignments[align] || alignments.left}

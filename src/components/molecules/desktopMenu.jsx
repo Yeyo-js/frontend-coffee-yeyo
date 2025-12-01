@@ -1,4 +1,6 @@
+import { Link } from "../atoms/links";
 import { NavbarLink } from "../atoms/navbarLink";
+import { Title } from "../atoms/titles";
 
 function NavbarMenu({ onLinkClick }) {
 
@@ -37,19 +39,23 @@ function NavbarMenu({ onLinkClick }) {
           </li>
         ))}
 
-        <a 
+        <Link 
           href="/" 
-          className="flex flex-col items-center justify-center mt-6 md:mt-8 bg-[#06141F] px-6 md:px-8 lg:px-10 pb-1 rounded-2xl z-100 border-b border-[#FFBB00]"
+          variant="secondary"
+          className=""
         >
           <img 
             src="/LOGO.png" 
             alt="Logo de la empresa" 
             className="w-14 md:w-16 lg:w-20" 
           />
-          <h1 className="text-[#FFBB00] font-bold text-xs md:text-sm">
-            BROUN COFFEE
-          </h1>
-        </a>
+          <Title 
+            text={'BROUN COFFEE'}
+            level="h2"
+            variant="secondary"
+            size="large"
+            className="text-[#FFBB00] font-bold text-xs md:text-sm"/>
+        </Link>
 
         {menu2.map((item, index) => (
           <li key={index}>
