@@ -1,7 +1,6 @@
 import { GiCoffeeBeans, GiCoffeeCup, GiCoffeePot, GiCoffeeMug } from "react-icons/gi";
 import { SiCoffeescript, SiBuymeacoffee } from "react-icons/si";
-import { VenefitionsOne } from "../molecules/homeVenefyOne";
-import { VenefitionsTwo } from "../molecules/homeVenefyTwo";
+import { VenefitionsList } from "../molecules/homeVenefyList";
 import { Title } from "../atoms/titles";
 
 function VenefitionsCoffee() {
@@ -72,7 +71,7 @@ function VenefitionsCoffee() {
         />
       </div>
       <div className="flex flex-col min-[600px]:flex-row gap-10 p-10 items-center justify-center">
-        <VenefitionsOne verifyOne={verifyOne} />
+        <VenefitionsList items={verifyOne} />
         <div className="flex items-center justify-center">
           <img
             src="/VENEFITIONS.png"
@@ -85,7 +84,10 @@ function VenefitionsCoffee() {
         "
           />
         </div>
-        <VenefitionsTwo verifyTwo={verifyTwo} />
+        <VenefitionsList 
+          items={verifyTwo} 
+          iconPosition="right"
+        />
       </div>
     </section>
   )

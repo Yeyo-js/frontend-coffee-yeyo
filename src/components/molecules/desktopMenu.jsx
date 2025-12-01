@@ -51,7 +51,7 @@ function NavbarMenu({ onLinkClick }) {
           />
           <Title 
             text={'BROUN COFFEE'}
-            level="h2"
+            level="h3"
             variant="secondary"
             weight="bold"
             />
