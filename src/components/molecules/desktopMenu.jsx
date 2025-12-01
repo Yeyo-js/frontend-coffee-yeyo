@@ -51,10 +51,10 @@ function NavbarMenu({ onLinkClick }) {
           />
           <Title 
             text={'BROUN COFFEE'}
-            level="h2"
+            level="h3"
             variant="secondary"
-            size="large"
-            className="text-[#FFBB00] font-bold text-xs md:text-sm"/>
+            weight="bold"
+            />
         </Link>
 
         {menu2.map((item, index) => (

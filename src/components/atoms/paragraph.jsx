@@ -1,49 +1,49 @@
-
 function Paragraph ({ 
   children,
   text, 
   className = '',
-  size = 'medium',       
-  variant = 'default',    
-  align = 'left', 
-  weight ='normal',        
+  size = 'medium',
+  variant = 'default',
+  align = 'left',
+  weight = 'normal',
   ...props 
 }) {
 
   const variants ={
-    default :'text-white',
-    primary : 'text-[#FFBB00]',
+    default: 'text-black',
+    primary: 'text-[#FFBB00]',
     secondary: 'text-[#A66A06]',
-    danger: 'text-black'
-  }
+    danger: 'text-gray-600'
+  };
 
-  const alings = {
-    left : 'text-left',
-    center :'text-center',
-    right : 'text-right'
-  }
+  const alignments = {
+    left: 'text-left',
+    center: 'text-center',
+    right: 'text-right'
+  };
 
   const sizes = {
-  small: "text-[0.6em] sm:text-[.7em] md:text-[.9em]",
-  medium: "text-[.8em] sm:text-[1em] md:text-[1.1em]",
-  large: "text-[1em] sm:text-[1.1em] md:text-[1.3em] lg:text-[1.6em]",
-};
+    small:  "text-[0.6em] sm:text-[.7em] md:text-[.9em]",
+    medium: "text-[.7em] sm:text-[.9em] md:text-[1em]",
+    large:  "text-[1em] sm:text-[1.1em] md:text-[1.3em] lg:text-[1.6em]",
+  };
 
   const weights = {
     light: 'font-light',
     normal: 'font-normal',
     bold: 'font-bold',
   };
+
   return (
     <p 
       className={`
-        ${variants[variant] || sizes.medium}
-        ${weights[weight] || weights.normal}
-        ${alings[align] || alings.left}
+        ${variants[variant] || variants.default}
         ${sizes[size] || sizes.medium}
+        ${alignments[align] || alignments.left}
+        ${weights[weight] || weights.normal}
         ${className}
-        `}
-        {...props}
+      `}
+      {...props}
     >
       {children || text}
     </p>

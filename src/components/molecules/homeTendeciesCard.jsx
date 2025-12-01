@@ -1,3 +1,6 @@
+import { Paragraph } from "../atoms/paragraph";
+import { Title } from "../atoms/titles";
+
 function TendenciesCard({ tendenciesCoffee }) {
   return (
     <>
@@ -29,8 +32,17 @@ function TendenciesCard({ tendenciesCoffee }) {
             />
             <span className="w-16 sm:w-20 md:w-24 h-2 sm:h-2.5 md:h-3 rounded-full shadow shadow-black blur-sm"></span>
           </div>
-          <h3 className="font-semibold text-lg text-center mt-2">{item.title}</h3>
-          <p className="text-sm text-center px-2 line-clamp-2">{item.description}</p>
+          <Title
+            level="h4"
+            weight="bold"
+            text={item.title}
+            className="mt-2"/>
+          <Paragraph
+            text={item.description}
+            size="small" 
+            align="center"
+            variant="danger"
+            className="px-2 line-clamp-2"/>
         </div>
       ))}
     </>
